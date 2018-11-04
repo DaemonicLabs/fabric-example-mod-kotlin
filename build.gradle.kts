@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import net.fabricmc.loom.task.SetupTask
+
 plugins {
     kotlin("jvm") version "1.3.0"
     idea
@@ -19,7 +22,7 @@ minecraft {
     // You can find the latest versions on https://fabric.asie.pl/use/.
     version = "18w44a"
     pomfVersion = "27"
-    fabricVersion = "0.1.0.40"
+    fabricVersion = "0.1.0.42"
 
     // Optional. Remove if you're not using Mixins.
     refmapName = "modid.refmap.json"
@@ -27,12 +30,16 @@ minecraft {
 
 repositories {
     mavenLocal()
-    jcenter()
-    maven(url="http://maven.modmuss50.me/") {
-        name = "Fabric"
-    }
 }
 
 dependencies {
     implementation("net.fabricmc:fabric-language-kotlin:1.3.0")
 }
+
+val setup by tasks.getting(SetupTask::class)
+
+val compileKotlin by tasks.getting(KotlinCompile::class) {
+    dependsOn(setup)
+}
+
+//setup.setup()
