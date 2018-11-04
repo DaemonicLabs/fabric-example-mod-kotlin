@@ -4,7 +4,7 @@ import net.fabricmc.loom.task.SetupTask
 plugins {
     kotlin("jvm") version "1.3.0"
     idea
-    id ("fabric-loom") version "0.0.12-SNAPSHOT"
+    id("fabric-loom") version "0.0.12-SNAPSHOT"
 }
 
 java {
@@ -32,8 +32,14 @@ repositories {
     mavenLocal()
 }
 
+
+val jarFIle =(gradle.startParameter.projectCacheDir ?: file(".gradle"))
+    .resolve("minecraft").resolve("remapped_mods").resolve("fabric-loader-18w44a-0.1.0.42-mapped-27.jar")
+println("lib: $jarFIle")
+
 dependencies {
     implementation("net.fabricmc:fabric-language-kotlin:1.3.0")
+    compile(files(jarFIle))
 }
 
 val setup by tasks.getting(SetupTask::class)
@@ -41,5 +47,3 @@ val setup by tasks.getting(SetupTask::class)
 val compileKotlin by tasks.getting(KotlinCompile::class) {
     dependsOn(setup)
 }
-
-//setup.setup()
