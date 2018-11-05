@@ -1,10 +1,7 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import net.fabricmc.loom.task.SetupTask
-
 plugins {
-    kotlin("jvm") version "1.3.0"
+    kotlin("jvm") version Kotlin.version
     idea
-    id("fabric-loom") version "0.0.12-SNAPSHOT"
+    id("fabric-loom") version Fabric.Loom.version
 }
 
 java {
@@ -16,14 +13,10 @@ base {
     archivesBaseName = "modid"
 }
 
+group = "net.fabricmc"
 version = "1.0.0"
 
 minecraft {
-    // You can find the latest versions on https://fabric.asie.pl/use/.
-    version = "18w44a"
-    pomfVersion = "27"
-    fabricVersion = "0.1.0.42"
-
     // Optional. Remove if you're not using Mixins.
     refmapName = "modid.refmap.json"
 }
@@ -32,18 +25,13 @@ repositories {
     mavenLocal()
 }
 
-
-val jarFIle =(gradle.startParameter.projectCacheDir ?: file(".gradle"))
-    .resolve("minecraft").resolve("remapped_mods").resolve("fabric-loader-18w44a-0.1.0.42-mapped-27.jar")
-println("lib: $jarFIle")
-
 dependencies {
-    implementation("net.fabricmc:fabric-language-kotlin:1.3.0")
-    compile(files(jarFIle))
+    mappings(group = "net.fabricmc", name = "pomf", version = "${Minecraft.version}.${Fabric.Pomf.version}")
+
+    minecraft(group = "com.mojang", name = "minecraft", version = Minecraft.version)
+
+    modCompile(group = "net.fabricmc", name = "fabric-loader", version = "${Minecraft.version}-${Fabric.version}")
+    modCompile(group = "net.fabricmc", name = "fabric-language-kotlin", version = Kotlin.version)
+    implementation(group = "net.fabricmc", name = "fabric-language-kotlin", version = Kotlin.version)
 }
 
-val setup by tasks.getting(SetupTask::class)
-
-val compileKotlin by tasks.getting(KotlinCompile::class) {
-    dependsOn(setup)
-}
