@@ -17,16 +17,18 @@ object ExampleMod : ModInitializer {
         // However, some things (like resources) may still be uninitialized.
         // Proceed with mild caution.
 
-        logger.info("Hello Fabric world!")
+        logger.info("[kotlin] Hello Fabric world!")
 
-        val prev = System.setProperty("kotlinx.coroutines.debug", "")
-        logger.debug("'kotlinx.coroutines.debug' prev: $prev")
+//        val prev = System.setProperty("kotlinx.coroutines.debug", "")
+//        logger.debug("'kotlinx.coroutines.debug' prev: $prev")
 
+        logger.info("Coroutine test starting")
         val channel = Channel<Int>()
         launch(CoroutineName("printer")) {
             for (k in channel) {
                 logger.info("received: $k")
             }
+            logger.info("printer finished")
         }
         launch(CoroutineName("sender")) {
             for (i in (0 until 10)) {
@@ -34,7 +36,8 @@ object ExampleMod : ModInitializer {
                 channel.send(i)
             }
             channel.close()
+            logger.info("sender finished")
         }
-        logger.info("KotlinExample loaded")
+        logger.info("Coroutines launched")
     }
 }

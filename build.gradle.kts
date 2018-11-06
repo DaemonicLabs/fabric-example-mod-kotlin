@@ -10,16 +10,13 @@ java {
 }
 
 base {
-    archivesBaseName = "modid"
+    archivesBaseName = Constants.modid
 }
 
 group = Constants.group
 version = Constants.version
 
-minecraft {
-    // Optional. Remove if you're not using Mixins.
-    refmapName = "modid.refmap.json"
-}
+minecraft { }
 
 repositories {
     mavenLocal()

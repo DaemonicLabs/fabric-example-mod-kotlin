@@ -1,13 +1,13 @@
 {
-  "id": "modid",
+  "id": "fabric-example-mod-kotlin",
   "name": "Example Mod Kotlin",
   "version": "1.0.0",
   "side": "universal",
   "initializer": "net.fabricmc.example.ExampleMod",
   "languageAdapter": "net.fabricmc.language.kotlin.KotlinLanguageAdapter",
   "mixins": {
-    "client": "modid.client.json",
-    "common": "modid.common.json"
+    "client": "kotlin-example.client.json",
+    "common": "kotlin-example.common.json"
   },
   "requires": {
     "net.fabricmc.language.kotlin": {
