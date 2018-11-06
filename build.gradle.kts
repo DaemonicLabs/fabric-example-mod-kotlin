@@ -13,8 +13,8 @@ base {
     archivesBaseName = "modid"
 }
 
-group = "net.fabricmc"
-version = "1.0.0"
+group = Constants.group
+version = Constants.version
 
 minecraft {
     // Optional. Remove if you're not using Mixins.

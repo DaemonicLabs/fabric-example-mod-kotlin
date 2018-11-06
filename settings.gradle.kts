@@ -7,4 +7,4 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-rootProject.name = "fabric-example-mod-kotlin"
+rootProject.name = Constants.name
