@@ -23,15 +23,13 @@ repositories {
 }
 
 dependencies {
-    mappings(group = "net.fabricmc", name = "pomf", version = "${Minecraft.version}.${Fabric.Pomf.version}")
-
     minecraft(group = "com.mojang", name = "minecraft", version = Minecraft.version)
 
-    modCompile(group = "net.fabricmc", name = "fabric-loader", version = "${Minecraft.version}-${Fabric.version}")
+    mappings(group = "net.fabricmc", name = "pomf", version = "${Minecraft.version}.${Fabric.Pomf.version}")
+
+    modCompile(group = "net.fabricmc", name = "fabric-loader", version = Fabric.version)
     modCompile(group = "net.fabricmc", name = "fabric-language-kotlin", version = Kotlin.version)
-    implementation(group = "net.fabricmc", name = "fabric-language-kotlin", version = Kotlin.version){
-        // required until modCompile also adds dependencies from fabric-language-kotlin
-        exclude(module = "fabric-loader")
-    }
+    // required until modCompile also adds to compileOnly
+    compileOnly(group = "net.fabricmc", name = "fabric-language-kotlin", version = Kotlin.version)
 }
 
