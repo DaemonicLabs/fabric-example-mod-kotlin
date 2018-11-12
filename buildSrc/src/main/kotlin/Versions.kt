@@ -8,7 +8,10 @@ object Fabric {
         const val version = "0.0.13-SNAPSHOT"
     }
     object Pomf {
-        const val version = "5"
+        const val version = "7"
+    }
+    object LanguageKotlin {
+        const val version = Kotlin.version + "-local"
     }
 }
 

@@ -28,7 +28,7 @@ dependencies {
     mappings(group = "net.fabricmc", name = "pomf", version = "${Minecraft.version}.${Fabric.Pomf.version}")
 
     modCompile(group = "net.fabricmc", name = "fabric-loader", version = Fabric.version)
-    modCompile(group = "net.fabricmc", name = "fabric-language-kotlin", version = Kotlin.version)
+    modCompile(group = "net.fabricmc", name = "fabric-language-kotlin", version = Fabric.LanguageKotlin.version)
     // required until modCompile also adds to compileOnly
     compileOnly(group = "net.fabricmc", name = "fabric-language-kotlin", version = Kotlin.version)
 }
