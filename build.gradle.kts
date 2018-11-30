@@ -30,6 +30,6 @@ dependencies {
     modCompile(group = "net.fabricmc", name = "fabric-loader", version = Fabric.version)
     modCompile(group = "net.fabricmc", name = "fabric-language-kotlin", version = Fabric.LanguageKotlin.version)
     // required until modCompile also adds to compileOnly
-    compileOnly(group = "net.fabricmc", name = "fabric-language-kotlin", version = Kotlin.version)
+    compileOnly(group = "net.fabricmc", name = "fabric-language-kotlin", version = Fabric.LanguageKotlin.version)
 }
 
