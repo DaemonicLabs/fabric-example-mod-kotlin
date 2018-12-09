@@ -25,7 +25,7 @@ repositories {
 dependencies {
     minecraft(group = "com.mojang", name = "minecraft", version = Minecraft.version)
 
-    mappings(group = "net.fabricmc", name = "pomf", version = "${Minecraft.version}.${Fabric.Pomf.version}")
+    mappings(group = "net.fabricmc", name = "yarn", version = "${Minecraft.version}.${Fabric.Yarn.version}")
 
     modCompile(group = "net.fabricmc", name = "fabric-loader", version = Fabric.version)
     modCompile(group = "net.fabricmc", name = "fabric-language-kotlin", version = Fabric.LanguageKotlin.version)
@@ -33,3 +33,12 @@ dependencies {
     compileOnly(group = "net.fabricmc", name = "fabric-language-kotlin", version = Fabric.LanguageKotlin.version)
 }
 
+tasks.getByName<ProcessResources>("processResources") {
+    filesMatching("mod.json") {
+        expand(
+            mutableMapOf(
+                "fabricKotlinVersion" to Fabric.LanguageKotlin.version
+            )
+        )
+    }
+}

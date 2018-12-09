@@ -1,20 +1,20 @@
 object Minecraft {
-    const val version = "18w48b"
+    const val version = "18w49a"
 }
 
 object Fabric {
-    const val version = "0.1.0.48"
+    const val version = "0.2.0.60"
     object Loom {
-        const val version = "0.0.13-SNAPSHOT"
+        const val version = "0.1.0-SNAPSHOT"
     }
-    object Pomf {
-        const val version = "5"
+    object Yarn {
+        const val version = "1"
     }
     object LanguageKotlin {
-        const val version = Kotlin.version + "-local"
+        const val version = Kotlin.version + "-9"
     }
 }
 
 object Kotlin {
-    const val version = "1.3.0"
+    const val version = "1.3.10"
 }
