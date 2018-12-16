@@ -1,6 +1,7 @@
 {
   "id": "fabric-example-mod-kotlin",
   "name": "Example Mod Kotlin",
+  "description": "This is an example description! Tell everyone what your mod is about!",
   "version": "1.0.0",
   "side": "universal",
   "initializer": "net.fabricmc.example.ExampleMod",
@@ -12,6 +13,9 @@
   "requires": {
     "fabric-language-kotlin": {
       "version": ">=${fabricKotlinVersion}"
+    },
+    "fabric": {
+      "version": ">=0.1.1"
     }
   }
 }

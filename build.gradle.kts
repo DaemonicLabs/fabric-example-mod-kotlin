@@ -34,7 +34,7 @@ dependencies {
 }
 
 tasks.getByName<ProcessResources>("processResources") {
-    filesMatching("mod.json") {
+    filesMatching("fabric.mod.json") {
         expand(
             mutableMapOf(
                 "fabricKotlinVersion" to Fabric.LanguageKotlin.version
