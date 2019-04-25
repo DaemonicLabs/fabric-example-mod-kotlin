@@ -1,21 +1,29 @@
 {
+  "schemaVersion": 1,
   "id": "fabric-example-mod-kotlin",
+  "version": "1.0.0",
   "name": "Example Mod Kotlin",
   "description": "This is an example description! Tell everyone what your mod is about!",
-  "version": "1.0.0",
-  "side": "universal",
-  "initializer": "net.fabricmc.example.ExampleMod",
-  "languageAdapter": "net.fabricmc.language.kotlin.KotlinLanguageAdapter",
-  "mixins": {
-    "client": "kotlin-example.client.json",
-    "common": "kotlin-example.common.json"
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "net.fabricmc.example.ExampleMod"
+      }
+    ]
   },
-  "requires": {
-    "fabric-language-kotlin": {
-      "version": ">=${fabricKotlinVersion}"
+  "mixins": [
+    {
+      "environment": "client",
+      "config": "kotlin-example.client.json"
     },
-    "fabric": {
-      "version": ">=0.1.1"
+    {
+      "environment": "*",
+      "config": "kotlin-example.common.json"
     }
+  ],
+  "depends": {
+    "fabric-language-kotlin": ">=${kotlinVersion}",
+    "fabric": ">=${fabricApiVersion}"
   }
 }

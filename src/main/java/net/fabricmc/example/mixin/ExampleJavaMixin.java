@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MinecraftClient.class)
 public class ExampleJavaMixin {
-    @Inject(at = @At("HEAD"), method = "init()V")
+    @Inject(at = @At("HEAD"), method = "init")
     private void init(CallbackInfo info) {
         System.out.println("This line is printed by an example mod mixin!");
     }

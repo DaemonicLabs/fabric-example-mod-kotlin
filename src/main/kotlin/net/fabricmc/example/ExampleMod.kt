@@ -1,5 +1,6 @@
 package net.fabricmc.example
 
+import blue.endless.jankson.Jankson
 import kotlinx.coroutines.CoroutineName
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
@@ -18,9 +19,6 @@ object ExampleMod : ModInitializer {
         // Proceed with mild caution.
 
         logger.info("[kotlin] Hello Fabric world!")
-
-//        val prev = System.setProperty("kotlinx.coroutines.debug", "")
-//        logger.debug("'kotlinx.coroutines.debug' prev: $prev")
 
         logger.info("Coroutine test starting")
         val channel = Channel<Int>()
